@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eddie Health | Healthcare for Dads</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #f4f4f3;
+      --black: #383838;
+      --green: #265f01;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background-color: var(--bg);
+      color: var(--black);
+    }
+
+    /* ── HEADER ── */
+    header {
+      padding: 20px 119px;
+    }
+
+    .logo {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 18px;
+      font-weight: 400;
+      letter-spacing: normal;
+      text-transform: uppercase;
+      color: var(--black);
+      text-decoration: none;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 0 119px 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      grid-template-rows: auto 1fr;
+      height: 852px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .hero-heading {
+      grid-column: 1 / -1;
+      grid-row: 1;
+      position: relative;
+      font-family: 'Archivo Black', sans-serif;
+      font-size: clamp(48px, 7.1vw, 116px);
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      line-height: 1.0;
+      text-transform: uppercase;
+      color: var(--black);
+      padding-bottom: 0;
+      padding-top: 0;
+      z-index: 3;
+    }
+
+    .hero-content {
+      grid-column: 1;
+      grid-row: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-start;
+      padding-right: 48px;
+      padding-bottom: 140px;
+      z-index: 3;
+    }
+
+    .hero-content .welcome {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .hero-content p {
+      font-size: 18px;
+      line-height: 1.65;
+      max-width: 400px;
+      margin-bottom: 36px;
+    }
+
+    .hero-image-wrap {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      z-index: 2;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      opacity: 0.75;
+    }
+
+    /* ── BUTTON ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      background-color: var(--green);
+      color: var(--white);
+      padding: 0 32px;
+      height: 71px;
+      border-radius: 300px;
+      text-decoration: none;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: normal;
+      text-transform: uppercase;
+      transition: background-color 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      background-color: #1a4500;
+    }
+
+    /* ── PROBLEM SECTION ── */
+    .problem {
+      padding: 100px 119px;
+      background-color: rgba(38, 95, 1, 0.13);
+      margin-top: 60px;
+    }
+
+    .problem-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 80px;
+    }
+
+    .problem-title {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: clamp(32px, 3.8vw, 62px);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+
+    .problem-intro-lead {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+
+    .problem-intro-sub {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.65;
+      color: var(--black);
+    }
+
+    .problem-cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+
+    .stat-card {
+      padding: 40px 40px 40px 0;
+    }
+
+    .stat-number {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: clamp(36px, 4vw, 64px);
+      font-weight: 400;
+      color: var(--green);
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+
+    .stat-body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stat-headline {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.45;
+      margin-bottom: 12px;
+    }
+
+    .stat-tagline {
+      font-size: 14px;
+      font-style: italic;
+      color: #666;
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+
+    .stat-source {
+      font-size: 11px;
+      color: #999;
+      line-height: 1.5;
+    }
+
+    .problem-cta {
+      margin-top: 64px;
+    }
+
+    /* ── CHECKUP SECTION ── */
+    .checkup {
+      padding: 100px 48px 100px 119px;
+    }
+
+    .checkup-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      max-width: 1400px;
+    }
+
+    .checkup-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .checkup-right {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .coming-soon {
+      display: inline-block;
+      font-style: italic;
+      font-size: 14px;
+      color: #666;
+      margin-top: 16px;
+    }
+
+    .checkup h2 {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: clamp(36px, 4.05vw, 66px);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      text-transform: uppercase;
+      margin-bottom: 0;
+    }
+
+    .checkup p {
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 48px 48px;
+      background-color: var(--green);
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    footer a {
+      font-size: 14px;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      header {
+        padding: 20px 24px;
+      }
+
+      .hero {
+        padding: 0 24px 0;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+      }
+
+      .hero-heading {
+        grid-column: 1;
+        grid-row: 1;
+        font-size: clamp(52px, 13vw, 80px);
+        padding-bottom: 0;
+      }
+
+      .hero-image-wrap {
+        grid-column: 1;
+        grid-row: 2;
+        margin: 0 -24px;
+        height: 360px;
+      }
+
+      .hero-content {
+        grid-column: 1;
+        grid-row: 3;
+        padding-right: 0;
+        padding-top: 36px;
+      }
+
+      .checkup {
+        padding: 64px 24px;
+      }
+
+      .checkup-inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      footer {
+        padding: 28px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="/" class="logo">Eddie Health</a>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="hero-grid">
+
+        <h1 class="hero-heading">Be Your Best Dad</h1>
+
+        <div class="hero-content">
+          <p class="welcome">Welcome to Eddie Health.</p>
+          <p>Optimize your physical, mental, and social health — so you can be there for your family, now and in the future.</p>
+          <a href="https://samhaddaway.typeform.com/to/nWAgnmk7" class="btn" target="_blank" rel="noopener">Join our email list</a>
+        </div>
+
+        <div class="hero-image-wrap">
+          <!-- Image from Squarespace CDN — download and host locally before canceling Squarespace -->
+          <img
+            src="https://images.squarespace-cdn.com/content/v1/682f8c82289c29235d382a26/1747947110301-CYF8W9RRANB34PP4AMKQ/unsplash-image-cnzamNXuwo4.jpg"
+            alt="A father helping his young son fish at the beach."
+          >
+        </div>
+
+      </div>
+    </section>
+
+    <section class="problem">
+      <div class="problem-header">
+        <p class="problem-intro-sub">Fatherhood changes everything — except how the healthcare system treats men. We're fixing that.</p>
+      </div>
+
+      <div class="problem-cards">
+
+        <div class="stat-card">
+          <div class="stat-number">72%</div>
+          <div class="stat-body">
+            <p class="stat-headline">of men would rather clean the bathroom than see a doctor.</p>
+            <p class="stat-tagline">But 61% say they'd go if it was actually convenient.<br>We built the checkup that fits into fatherhood — not the other way around.</p>
+            <p class="stat-source">Source: Cleveland Clinic MENtion It National Survey</p>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-number">1 in 10</div>
+          <div class="stat-body">
+            <p class="stat-headline">new dads develops postpartum depression.</p>
+            <p class="stat-tagline">You're focused on her and the baby. We're focused on you.</p>
+            <p class="stat-source">Source: Paulson &amp; Bazemore, JAMA (2010) — meta-analysis of 43 studies, 28,000+ fathers</p>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-number">+4 lbs</div>
+          <div class="stat-body">
+            <p class="stat-headline">New dads gain an average of 4 pounds. Their childless friends lose 1.4.</p>
+            <p class="stat-tagline">Dadbod is real. So is the health risk behind it.</p>
+            <p class="stat-source">Source: Garfield et al., American Journal of Men's Health, Northwestern Medicine (2015) — 20-year study of 10,000+ men</p>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-number">82%</div>
+          <div class="stat-body">
+            <p class="stat-headline">of men want to stay healthy to be there for their family. Only 50% actually do anything about it.</p>
+            <p class="stat-tagline">Wanting to be around for your kids is the easy part. We'll help you follow through.</p>
+            <p class="stat-source">Source: Cleveland Clinic MENtion It National Survey</p>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="checkup">
+      <div class="checkup-inner">
+        <div class="checkup-left">
+          <h2>The New Dad Checkup</h2>
+          <span class="coming-soon">Coming Soon</span>
+        </div>
+        <div class="checkup-right">
+          <p>Being a dad shouldn't get in the way of your health, it should motivate you to improve it. That's why we created <strong>The New Dad Checkup</strong> — a virtual health assessment designed specifically for new dads. Catch up on your health and identify potential issues today, all without falling behind on your daily dad duties.</p>
+          <a href="https://samhaddaway.typeform.com/to/nWAgnmk7" class="btn" target="_blank" rel="noopener">Join the waitlist</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <a href="mailto:contact@eddiehealth.com">contact@eddiehealth.com</a>
+  </footer>
+
+</body>
+</html>
