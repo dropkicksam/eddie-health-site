@@ -255,6 +255,146 @@
       margin-top: 64px;
     }
 
+    /* ── CONDITIONS SECTION ── */
+    .conditions {
+      padding: 100px 119px;
+    }
+
+    .conditions-top {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 32px;
+      margin-bottom: 48px;
+    }
+
+    .conditions-header {
+      max-width: 580px;
+    }
+
+    .conditions-header h2 {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: clamp(32px, 3.8vw, 62px);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .conditions-header p {
+      font-size: 18px;
+      line-height: 1.65;
+      color: #555;
+    }
+
+    .carousel-controls {
+      display: flex;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .carousel-btn {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 2px solid var(--black);
+      background: transparent;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .carousel-btn:hover {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .carousel-btn svg {
+      width: 20px;
+      height: 20px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .carousel-track-wrap {
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: 0;
+      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      width: 100%;
+    }
+
+    .condition-card {
+      background-color: var(--white);
+      border: 1px solid #d5d1cb;
+      border-right: none;
+      padding: 36px 32px;
+      flex: 0 0 33.333%;
+      min-width: 0;
+      box-sizing: border-box;
+    }
+
+    .condition-card:last-child {
+      border-right: 1px solid #d5d1cb;
+    }
+
+    .condition-name {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      margin-bottom: 12px;
+      color: var(--green);
+    }
+
+    .condition-items {
+      font-size: 14px;
+      line-height: 1.7;
+      color: #666;
+    }
+
+    .carousel-dots {
+      display: flex;
+      gap: 8px;
+      margin-top: 32px;
+    }
+
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #d5d1cb;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: background 0.2s;
+    }
+
+    .carousel-dot.active {
+      background: var(--green);
+    }
+
+    @media (max-width: 600px) {
+      .conditions {
+        padding: 64px 24px;
+      }
+
+      .condition-card {
+        flex: 0 0 100%;
+      }
+    }
+
     /* ── CHECKUP SECTION ── */
     .checkup {
       padding: 100px 48px 100px 119px;
@@ -402,7 +542,7 @@
         <h1 class="hero-heading">Be Your Best Dad</h1>
 
         <div class="hero-content">
-          <p class="welcome">Welcome to Eddie Health.</p>
+          <p class="welcome">Healthcare for Dads.</p>
           <p>Optimize your physical, mental, and social health — so you can be there for your family, now and in the future.</p>
           <a href="https://samhaddaway.typeform.com/to/nWAgnmk7" class="btn" target="_blank" rel="noopener">Join our email list</a>
         </div>
@@ -420,19 +560,12 @@
 
     <section class="problem">
       <div class="problem-header">
-        <p class="problem-intro-sub">Fatherhood changes everything — except how the healthcare system treats men. We're fixing that.</p>
+        <p class="problem-intro-sub">The moment you become a dad, everything changes. The best thing you can do for your family is to start taking care of yourself. That's why we built Eddie Health.</p>
       </div>
 
       <div class="problem-cards">
 
-        <div class="stat-card">
-          <div class="stat-number">72%</div>
-          <div class="stat-body">
-            <p class="stat-headline">of men would rather clean the bathroom than see a doctor.</p>
-            <p class="stat-tagline">But 61% say they'd go if it was actually convenient.<br>We built the checkup that fits into fatherhood — not the other way around.</p>
-            <p class="stat-source">Source: Cleveland Clinic MENtion It National Survey</p>
-          </div>
-        </div>
+
 
         <div class="stat-card">
           <div class="stat-number">1 in 10</div>
@@ -452,9 +585,141 @@
           </div>
         </div>
 
+              <div class="stat-card">
+          <div class="stat-number">61%</div>
+          <div class="stat-body">
+            <p class="stat-headline">of men say they'd go to the doctor if it was actually convenient.</p>
+            <p class="stat-tagline">We built the checkup that fits into fatherhood — not the other way around.</p>
+            <p class="stat-source">Source: Cleveland Clinic MENtion It National Survey</p>
+          </div>
+        </div>
+
       </div>
 
     </section>
+
+    <section class="conditions">
+      <div class="conditions-top">
+        <div class="conditions-header">
+          <h2>Built for the health issues dads actually face</h2>
+          <p>We're building Eddie Health around the conditions most relevant to your life stage.</p>
+        </div>
+        <div class="carousel-controls">
+          <button class="carousel-btn" id="carousel-prev" aria-label="Previous">
+            <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button class="carousel-btn" id="carousel-next" aria-label="Next">
+            <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="carousel-track-wrap">
+        <div class="carousel-track" id="carousel-track">
+
+          <div class="condition-card">
+            <div class="condition-name">Fertility</div>
+            <div class="condition-items">Sperm health, fertility testing, family planning support</div>
+          </div>
+
+          <div class="condition-card">
+            <div class="condition-name">Mental Health</div>
+            <div class="condition-items">Anxiety, stress, postpartum depression</div>
+          </div>
+
+          <div class="condition-card">
+            <div class="condition-name">Weight & Metabolism</div>
+            <div class="condition-items">Weight loss, diabetes, nutrition</div>
+          </div>
+
+          <div class="condition-card">
+            <div class="condition-name">Heart Health</div>
+            <div class="condition-items">Hypertension, cholesterol, cardiovascular risk</div>
+          </div>
+
+          <div class="condition-card">
+            <div class="condition-name">Substance & Behavioral Health</div>
+            <div class="condition-items">Alcohol, smoking, drug use, gambling</div>
+          </div>
+
+          <div class="condition-card">
+            <div class="condition-name">Musculoskeletal</div>
+            <div class="condition-items">Back pain, joint health, injury recovery</div>
+          </div>
+
+          <div class="condition-card">
+            <div class="condition-name">Hair Loss</div>
+            <div class="condition-items">Male pattern baldness, hair regrowth</div>
+          </div>
+
+          <div class="condition-card">
+            <div class="condition-name">Sexual & Hormonal Health</div>
+            <div class="condition-items">Erectile dysfunction, premature ejaculation, testosterone</div>
+          </div>
+
+          
+        </div>
+      </div>
+
+      <div class="carousel-dots" id="carousel-dots"></div>
+    </section>
+
+    <script>
+      (function () {
+        const track = document.getElementById('carousel-track');
+        const dotsContainer = document.getElementById('carousel-dots');
+        const prevBtn = document.getElementById('carousel-prev');
+        const nextBtn = document.getElementById('carousel-next');
+        const cards = track.querySelectorAll('.condition-card');
+
+        const wrap = track.parentElement;
+
+        function visibleCount() {
+          return window.innerWidth <= 600 ? 1 : 3;
+        }
+
+        let current = 0;
+
+        function totalSteps() {
+          return cards.length - visibleCount();
+        }
+
+        function cardWidth() {
+          return wrap.offsetWidth / visibleCount();
+        }
+
+        function buildDots() {
+          dotsContainer.innerHTML = '';
+          const steps = totalSteps();
+          for (let i = 0; i <= steps; i++) {
+            const dot = document.createElement('button');
+            dot.className = 'carousel-dot' + (i === current ? ' active' : '');
+            dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+            dot.addEventListener('click', () => goTo(i));
+            dotsContainer.appendChild(dot);
+          }
+        }
+
+        function goTo(index) {
+          current = Math.max(0, Math.min(index, totalSteps()));
+          track.style.transform = `translateX(-${current * cardWidth()}px)`;
+          dotsContainer.querySelectorAll('.carousel-dot').forEach((d, i) => {
+            d.classList.toggle('active', i === current);
+          });
+        }
+
+        prevBtn.addEventListener('click', () => goTo(current - 1));
+        nextBtn.addEventListener('click', () => goTo(current + 1));
+
+        window.addEventListener('resize', () => {
+          current = 0;
+          buildDots();
+          goTo(0);
+        });
+
+        buildDots();
+      })();
+    </script>
 
     <section class="checkup">
       <div class="checkup-inner">
@@ -463,8 +728,10 @@
           <span class="coming-soon">Coming Soon</span>
         </div>
         <div class="checkup-right">
-          <p>Being a dad shouldn't get in the way of your health, it should motivate you to improve it. That's why we created <strong>The New Dad Checkup</strong> — a virtual health assessment designed specifically for new dads. Catch up on your health and identify potential issues today, all without falling behind on your daily dad duties.</p>
-          <a href="https://samhaddaway.typeform.com/to/nWAgnmk7" class="btn" target="_blank" rel="noopener">Join the waitlist</a>
+          <p>Being a dad shouldn't get in the way of your health, it should motivate you to improve it. That's why we're creating <strong>The New Dad Checkup</strong> — a virtual health assessment designed specifically for new dads. Catch up on your health and identify potential issues today - without falling behind on your daily dad duties.</p>
+          <div style="display:flex; gap: 16px; flex-wrap: wrap; align-items: center;">
+            <a href="https://samhaddaway.typeform.com/to/nWAgnmk7" class="btn" target="_blank" rel="noopener">Join the waitlist</a>
+          </div>
         </div>
       </div>
     </section>
